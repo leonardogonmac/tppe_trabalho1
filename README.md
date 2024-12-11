@@ -1,8 +1,13 @@
 #  Calculadora de Imposto de Renda de Pessoas Físicas (IRPF) Entrega 1 -TDD
 
+## Equipe
+O projeto está sendo desenvolvido por um grupo de alunos da disciplina Técnicas de Programação para Plataformas Emergentes (FGA0242) da Universidade de Brasília.
 Integrantes:
+
 Paulo Victor Fonseca Sousa - Matrícula: 211043718
+
 Leonardo Goncalves Machado - Matrícula: 211029405
+
 Arthur Grandão de Mello - Matrícula: 211039250
 
 ## Descrição do Projeto
@@ -23,6 +28,5 @@ Este projeto tem como objetivo a implementação de uma calculadora de Imposto d
 ## Testes
 Os testes do projeto estão organizados na suíte de testes presente no arquivo AllTests.java, onde as funcionalidades são testadas de forma integrada. Para esta entrega, será necessário implementar testes para as funcionalidades que faltam, seguindo a metodologia de TDD.
 
-## Equipe
-O projeto está sendo desenvolvido por um grupo de alunos da disciplina Técnicas de Programação para Plataformas Emergentes (FGA0242) da Universidade de Brasília.
+
 
