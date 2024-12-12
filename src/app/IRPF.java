@@ -290,5 +290,12 @@ public class IRPF {
 		return soma;
 	}
 	
+	public float baseCalculo(){
+		float valor = totalRendimentos;
+		for(float i: valoresDeducoes){
+			valor -= i;
+		}
+		return valor;
+	}
 	
 }
