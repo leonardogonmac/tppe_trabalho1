@@ -297,5 +297,25 @@ public class IRPF {
 		}
 		return valor;
 	}
-	
+	public float calcularImposto() {
+		float base = baseCalculo();
+		float imposto = 0;
+		if (base > 4664.68f) {
+			imposto += (base - 4664.68f) * 0.275f;
+			base = 4664.68f;
+		}
+		if (base > 3751.05f) {
+			imposto += (base - 3751.05f) * 0.225f;
+			base = 3751.05f;
+		}
+		if (base > 2826.65f) {
+			imposto += (base - 2826.65f) * 0.15f;
+			base = 2826.65f;
+		}
+		if (base > 2259.20f) {
+			imposto += (base - 2259.20f) * 0.075f;
+		}
+		return imposto;
+	}
 }
+
