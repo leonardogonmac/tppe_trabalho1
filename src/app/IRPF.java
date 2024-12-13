@@ -291,12 +291,21 @@ public class IRPF {
 	}
 	
 	public float baseCalculo(){
-		float valor = totalRendimentos;
-		for(float i: valoresDeducoes){
-			valor -= i;
-		}
+		float valor = getTotalRendimentosTributaveis();
+		// for(float i: valoresDeducoes){
+		// 	valor -= i;
+		// }
+
+		valor -= getTotalContribuicoesPrevidenciarias();
+		valor -= getTotalPensaoAlimenticia();
+		valor -= getTotalOutrasDeducoes();
+		valor -= getNumDependentes() * 189.59f;
+
+		// Adicionar limite para n passar de 0
+
 		return valor;
 	}
+
 	public float calcularImposto() {
 		float base = baseCalculo();
 		float imposto = 0;
@@ -314,8 +323,15 @@ public class IRPF {
 		}
 		if (base > 2259.20f) {
 			imposto += (base - 2259.20f) * 0.075f;
+			base = 2259.20f;
 		}
+		// Faixa 1 não precisa adicionar imposto pois a alíquota é 0%
+
 		return imposto;
+	}
+
+	public float calcularAliquotaEfetiva() {
+		return (calcularImposto() / getTotalRendimentosTributaveis())*100.00f;
 	}
 }
 
