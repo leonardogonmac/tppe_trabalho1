@@ -331,7 +331,9 @@ public class IRPF {
 	}
 
 	public float calcularAliquotaEfetiva() {
-		return (calcularImposto() / getTotalRendimentosTributaveis())*100.00f;
+		float contribuicoes = getTotalRendimentosTributaveis();
+		if (contribuicoes > 0) return (calcularImposto() / contribuicoes);
+		else return 0.0f;
 	}
 }
 
