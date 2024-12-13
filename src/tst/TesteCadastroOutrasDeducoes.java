@@ -4,6 +4,84 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
+import java.util.Arrays;
+import java.util.Collection;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
+
+import app.IRPF;
+
+@RunWith(Parameterized.class)
+public class TesteCadastroOutrasDeducoes {
+
+    private String[] nomesDeducoes;
+    private float[] valoresDeducoes;
+    private String deducaoConsulta;
+    private Float valorEsperadoConsulta;
+    private float totalEsperado;
+
+    private IRPF irpf;
+
+    public TesteCadastroOutrasDeducoes(String[] nomesDeducoes, float[] valoresDeducoes, String deducaoConsulta, Float valorEsperadoConsulta, float totalEsperado) {
+        this.nomesDeducoes = nomesDeducoes;
+        this.valoresDeducoes = valoresDeducoes;
+        this.deducaoConsulta = deducaoConsulta;
+        this.valorEsperadoConsulta = valorEsperadoConsulta;
+        this.totalEsperado = totalEsperado;
+    }
+
+    @Before
+    public void setup() {
+        irpf = new IRPF();
+    }
+
+    @Parameters
+    public static Collection<Object[]> getParameters() {
+        return Arrays.asList(new Object[][]{
+           
+            {new String[]{"Funpresp"}, new float[]{1000f}, "Funpresp", 1000f, 1000f},
+            
+            {new String[]{"Funpresp", "Carne-leao"}, new float[]{1000f, 500f}, "Carne-leao", 500f, 1500f},
+           
+            {new String[]{"Funpresp", "Carne-leao", "PGBL"}, new float[]{1000f, 500f, 500f}, "PGBL", 500f, 2000f},
+           
+            {new String[]{"Funpresp"}, new float[]{1000f}, "Carne-leao", 0f, 1000f}
+        });
+    }
+
+    @Test
+    public void testeCadastroDeducoes() {
+        // Cadastro das deduções
+        for (int i = 0; i < nomesDeducoes.length; i++) {
+            irpf.cadastrarDeducaoIntegral(nomesDeducoes[i], valoresDeducoes[i]);
+        }
+
+        // Verificação de dedução específica
+        if (valorEsperadoConsulta == 0f) {
+            assertNull(irpf.getOutrasDeducoes(deducaoConsulta));
+        } else {
+            assertNotNull(irpf.getOutrasDeducoes(deducaoConsulta));
+            assertEquals(valorEsperadoConsulta, irpf.getDeducao(deducaoConsulta), 0f);
+        }
+
+        // Verificação do total de deduções
+        assertEquals(totalEsperado, irpf.getTotalOutrasDeducoes(), 0f);
+    }
+}
+
+
+
+
+/*package tst;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -60,3 +138,4 @@ public class TesteCadastroOutrasDeducoes {
 		assertEquals(0f, irpf.getDeducao("Carne-leao"), 0f);
 	}
 }
+*/

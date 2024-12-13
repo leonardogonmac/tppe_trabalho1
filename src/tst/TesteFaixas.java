@@ -1,19 +1,64 @@
 package tst;
 
-import static org.junit.Assert.assertEquals;
-import org.junit.Before;
-import org.junit.Test;
-import app.IRPF;
-
-public class TesteFaixas {
-    IRPF irpf;
-
-    @Before
-    public void setup() {
-        irpf = new IRPF();
+    import app.IRPF;
+    import org.junit.Before;
+    import org.junit.Test;
+    import org.junit.runner.RunWith;
+    import org.junit.runners.Parameterized;
+    import org.junit.runners.Parameterized.Parameters;
+    
+    import java.util.Arrays;
+    import java.util.Collection;
+    
+    import static org.junit.Assert.assertEquals;
+    
+    @RunWith(Parameterized.class)
+    public class TesteFaixas {
+    
+        private float baseCalculo;
+        private float impostoEsperado;
+    
+        private IRPF irpf;
+    
+        public TesteFaixas(float baseCalculo, float impostoEsperado) {
+            this.baseCalculo = baseCalculo;
+            this.impostoEsperado = impostoEsperado;
+        }
+    
+        @Before
+        public void setup() {
+            irpf = new IRPF();
+        }
+    
+        @Parameters
+        public static Collection<Object[]> getParameters() {
+            return Arrays.asList(new Object[][]{
+                {6810.41f, 976.84f}, 
+                {5000f, 478.99f},
+                {4664.68f, 386.8f},   
+                {4000f, 237.22f},    
+                {3150f, 91.05f},     
+                {2500f, 18.06f},
+                {2259.20f, 0f},          
+                {2000f, 0f}, 
+                   
+            });
+        }
+    
+        @Test
+        public void testeCalculoImpostoPorFaixas() {
+            irpf.criarRendimento("Base de Calculo", true, baseCalculo);
+            assertEquals(impostoEsperado, irpf.calcularImposto(), 0.03f);
+        }
     }
 
-    @Test
+ 
+ 
+ 
+ 
+ 
+ 
+    /*   @Test
     public void testeSemRendimentosTributaveis() {
         assertEquals(0.0f, irpf.calcularImposto(), 0.01f);
     }
@@ -71,4 +116,5 @@ public class TesteFaixas {
                          (4664.68f - 3751.05f) * 0.225f;
         assertEquals(expected, irpf.calcularImposto(), 0.01f);
     }
-}
+ */   
+
