@@ -290,22 +290,28 @@ public class IRPF {
 		return soma;
 	}
 	
+	/** 
+	 * Calcula a base de cálculo do imposto de renda, subtraindo do total de rendimentos tributáveis
+	 * as deduções tributárias.
+	 * @return valor da base de cálculo
+	 */
 	public float baseCalculo(){
 		float valor = getTotalRendimentosTributaveis();
-		// for(float i: valoresDeducoes){
-		// 	valor -= i;
-		// }
 
 		valor -= getTotalContribuicoesPrevidenciarias();
 		valor -= getTotalPensaoAlimenticia();
 		valor -= getTotalOutrasDeducoes();
 		valor -= getNumDependentes() * 189.59f;
 
-		// Adicionar limite para n passar de 0
+		if (valor < 0f) valor = 0f;
 
 		return valor;
 	}
 
+	/** 
+	 * Calcula o imposto a partir da base de cálculo, com base nas faixas do IRPF.
+	 * @return valor total do imposto.
+	 */
 	public float calcularImposto() {
 		float base = baseCalculo();
 		float imposto = 0;
@@ -325,11 +331,14 @@ public class IRPF {
 			imposto += (base - 2259.20f) * 0.075f;
 			base = 2259.20f;
 		}
-		// Faixa 1 não precisa adicionar imposto pois a alíquota é 0%
 
 		return imposto;
 	}
 
+	/** 
+	 * Calcula a alíquota efetiva do contribuinte, a partir do total de rendimentos tributáveis.
+	 * @return valor da alíquota efetiva.
+	 */
 	public float calcularAliquotaEfetiva() {
 		float contribuicoes = getTotalRendimentosTributaveis();
 		if (contribuicoes > 0) return (calcularImposto() / contribuicoes);

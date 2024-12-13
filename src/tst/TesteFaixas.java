@@ -52,13 +52,9 @@ package tst;
         }
     }
 
- 
- 
- 
- 
- 
- 
-    /*   @Test
+
+/* Versão não parametrizada
+     @Test
     public void testeSemRendimentosTributaveis() {
         assertEquals(0.0f, irpf.calcularImposto(), 0.01f);
     }
@@ -116,5 +112,5 @@ package tst;
                          (4664.68f - 3751.05f) * 0.225f;
         assertEquals(expected, irpf.calcularImposto(), 0.01f);
     }
- */   
+*/   
 

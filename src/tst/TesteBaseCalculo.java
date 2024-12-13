@@ -48,53 +48,62 @@ public class TesteBaseCalculo {
         String[][] nomeRendMat = {
             {"Rendimento1A", "Rendimento1B", "Rendimento1C"},
             {"Rendimento2A", "Rendimento2B", "Rendimento2C"},
-            {"Rendimento3A", "Rendimento3B", "Rendimento3C"}
+            {"Rendimento3A", "Rendimento3B", "Rendimento3C"},
+            {"Rendimento4A"}
         };
         float[][] valorRendMat = {
             {1000.0f, 2000.0f, 3000.0f},
             {1100.0f, 2200.0f, 3300.0f},
-            {700.0f, 200.0f, 460.0f}
+            {700.0f, 200.0f, 460.0f},
+            {500.0f}
         };
         boolean[][] rendTribMat = {
             {true, false, true},
             {false, true, false},
-            {true, true, true}
+            {true, true, true},
+            {true}
         };
         String[][] nomeDedMat = {
             {"Deducao1A", "Deducao1B", "Deducao1C"},
             {"Deducao2A", "Deducao2B", "Deducao2C"},
             {"Deducao2A", "Deducao2B", "Deducao2C"},
-            {"Deducao3A", "Deducao3B", "Deducao3C"}
+            {"Deducao3A", "Deducao3B", "Deducao3C"},
+            {"Deducao4A", "Deducao4B", "Deducao4C"}
         };
         float[][] valoresDedMat = {
             {180.0f, 300.0f, 50.0f},
             {330.0f, 68.0f, 120.0f},
-            {90.0f, 34.0f, 56.0f}
+            {90.0f, 34.0f, 56.0f},
+            {100.0f, 200.0f, 300.0f}
         };
         String[][] nomesDepMat = {
             {"Dependente1A", "Dependente1B", "Dependente1C"},
             {"Dependente2A", "Dependente2B", "Dependente2C"},
-            {"Dependente3A", "Dependente3B", "Dependente3C"}
+            {"Dependente3A", "Dependente3B", "Dependente3C"},
+            {"Dependente4A"}
         };
         String[][] parenDepMat = {
             {"filho", "filha", "outro"},
             {"alimentando", "outro", "alimentanda"},
-            {"filha", "outro", "alimentanda"}
+            {"filha", "outro", "alimentanda"},
+            {"filha"}
         };
 
         float[][] contribPrevMat = {
             {100.0f, 25.0f, 50.0f},
             {200.0f, 30.0f, 45.0f},
-            {80.0f, 79.0f, 56.0f}
+            {80.0f, 79.0f, 56.0f},
+            {50.0f, 100.0f}
         };
 
 
-        float[] baseVetor = {2626.23f, 738.23f, 296.23f};
+        float[] baseVetor = {2626.23f, 738.23f, 296.23f, 0.0f};
 
         return Arrays.asList(new Object [][]{
             {nomeRendMat[0], valorRendMat[0], rendTribMat[0], nomeDedMat[0], valoresDedMat[0], nomesDepMat[0], parenDepMat[0], contribPrevMat[0], baseVetor[0]},
             {nomeRendMat[1], valorRendMat[1], rendTribMat[1], nomeDedMat[1], valoresDedMat[1], nomesDepMat[1], parenDepMat[1], contribPrevMat[1], baseVetor[1]},
             {nomeRendMat[2], valorRendMat[2], rendTribMat[2], nomeDedMat[2], valoresDedMat[2], nomesDepMat[2], parenDepMat[2], contribPrevMat[2], baseVetor[2]},
+            {nomeRendMat[3], valorRendMat[3], rendTribMat[3], nomeDedMat[3], valoresDedMat[3], nomesDepMat[3], parenDepMat[3], contribPrevMat[3], baseVetor[3]},
         });
     }
 

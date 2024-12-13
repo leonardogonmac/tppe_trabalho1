@@ -106,8 +106,11 @@ public class TesteAliquotaEfetiva {
     @Test 
     public void testeAliquotaEfetiva(){
         assertEquals(aliquota, irpf.calcularAliquotaEfetiva(), 0.01f);
-    }
-/* 
+    }    
+}
+
+
+/* Versão não parametrizada
     @Test
     public void testeAliquotaEfetiva() {
         irpf.criarRendimento("Salário", IRPF.TRIBUTAVEL, 8000f);
@@ -132,4 +135,3 @@ public class TesteAliquotaEfetiva {
         assertEquals(0.0f, irpf.calcularAliquotaEfetiva(), 0.00f);
     }
 */    
-}
