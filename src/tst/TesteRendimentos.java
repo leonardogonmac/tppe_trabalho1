@@ -11,7 +11,7 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
 
-import app.IRPF;
+import app.*;
 
 @RunWith(Parameterized.class)
 public class TesteRendimentos {
@@ -49,10 +49,10 @@ public class TesteRendimentos {
 			{5000f, 4000f, 3000f}
         };
         boolean[][] rendTribMat = {
-            {IRPF.TRIBUTAVEL},
-            {IRPF.TRIBUTAVEL},
-            {IRPF.TRIBUTAVEL, IRPF.TRIBUTAVEL},
-			{IRPF.TRIBUTAVEL, IRPF.TRIBUTAVEL, IRPF.NAOTRIBUTAVEL}
+            {Rendimento.TRIBUTAVEL},
+            {Rendimento.TRIBUTAVEL},
+            {Rendimento.TRIBUTAVEL, Rendimento.TRIBUTAVEL},
+			{Rendimento.TRIBUTAVEL, Rendimento.TRIBUTAVEL, Rendimento.NAOTRIBUTAVEL}
         };
 		int[] numRendVetor = {1, 1, 2, 3};
 		float[] totalRendVetor = {5000f, 4000f, 9000f, 12000f};
@@ -83,7 +83,7 @@ public class TesteRendimentos {
 
 	/*@Test
 	public void test1RendimentoTributavel() {
-		irpf.criarRendimento("Salario", IRPF.TRIBUTAVEL, 5000f);
+		irpf.criarRendimento("Salario", Rendimento.TRIBUTAVEL, 5000f);
 		assertEquals(1, irpf.getNumRendimentos());
 		assertEquals(5000f, irpf.getTotalRendimentos(), 0);
 		assertEquals(5000f, irpf.getTotalRendimentosTributaveis(), 0);
@@ -91,7 +91,7 @@ public class TesteRendimentos {
 	
 	@Test
 	public void testeOutroRendimentoTributavel() {
-		irpf.criarRendimento("Aluguel", IRPF.TRIBUTAVEL, 4000f);
+		irpf.criarRendimento("Aluguel", Rendimento.TRIBUTAVEL, 4000f);
 		assertEquals(1, irpf.getNumRendimentos());
 		assertEquals(4000f, irpf.getTotalRendimentos(), 0);
 		assertEquals(4000f, irpf.getTotalRendimentosTributaveis(), 0);
@@ -99,8 +99,8 @@ public class TesteRendimentos {
 	
 	@Test
 	public void testDoisRendimentosTributaveis() {
-		irpf.criarRendimento("Salario", IRPF.TRIBUTAVEL, 5000f);
-		irpf.criarRendimento("Aluguel", IRPF.TRIBUTAVEL, 4000f);
+		irpf.criarRendimento("Salario", Rendimento.TRIBUTAVEL, 5000f);
+		irpf.criarRendimento("Aluguel", Rendimento.TRIBUTAVEL, 4000f);
 		assertEquals(2, irpf.getNumRendimentos());
 		assertEquals(9000f, irpf.getTotalRendimentos(), 0);
 		assertEquals(9000f, irpf.getTotalRendimentosTributaveis(), 0);
@@ -108,9 +108,9 @@ public class TesteRendimentos {
 	
 	@Test
 	public void testeTresRendimentos() {
-		irpf.criarRendimento("Salario", IRPF.TRIBUTAVEL, 5000f);
-		irpf.criarRendimento("Aluguel", IRPF.TRIBUTAVEL, 4000f);
-		irpf.criarRendimento("Bolsa de pesquisa", IRPF.NAOTRIBUTAVEL, 3000f);
+		irpf.criarRendimento("Salario", Rendimento.TRIBUTAVEL, 5000f);
+		irpf.criarRendimento("Aluguel", Rendimento.TRIBUTAVEL, 4000f);
+		irpf.criarRendimento("Bolsa de pesquisa", Rendimento.NAOTRIBUTAVEL, 3000f);
 		assertEquals(3, irpf.getNumRendimentos());
 		assertEquals(12000f, irpf.getTotalRendimentos(), 0);
 		assertEquals(9000f, irpf.getTotalRendimentosTributaveis(), 0);

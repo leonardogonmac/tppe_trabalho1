@@ -4,10 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class IRPF {
-
-	public static final boolean TRIBUTAVEL = true;
-	public static final boolean NAOTRIBUTAVEL = false;
-
 	private List<Rendimento> rendimentos;
 
 	private List<Dependente> dependentes;

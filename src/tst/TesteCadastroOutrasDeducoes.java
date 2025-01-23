@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
-import app.IRPF;
+import app.*;
 
 @RunWith(Parameterized.class)
 public class TesteCadastroOutrasDeducoes {
@@ -85,7 +85,7 @@ import static org.junit.Assert.assertNull;
 import org.junit.Before;
 import org.junit.Test;
 
-import app.IRPF;
+import app.*;
 
 public class TesteCadastroOutrasDeducoes {
 

@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
-import app.IRPF;
+import app.*;
 
 @RunWith(Parameterized.class)
 public class TesteAliquotaEfetiva {
@@ -45,8 +45,8 @@ public class TesteAliquotaEfetiva {
             {}
         };
         boolean[][] rendTribMat = {
-            {IRPF.TRIBUTAVEL, IRPF.TRIBUTAVEL, IRPF.NAOTRIBUTAVEL},
-            {IRPF.TRIBUTAVEL},
+            {Rendimento.TRIBUTAVEL, Rendimento.TRIBUTAVEL, Rendimento.NAOTRIBUTAVEL},
+            {Rendimento.TRIBUTAVEL},
             {}
         };
         float[][] valorRendMat = {
@@ -113,9 +113,9 @@ public class TesteAliquotaEfetiva {
 /* Versão não parametrizada
     @Test
     public void testeAliquotaEfetiva() {
-        irpf.criarRendimento("Salário", IRPF.TRIBUTAVEL, 8000f);
-        irpf.criarRendimento("Aluguel", IRPF.TRIBUTAVEL, 2000f);
-        irpf.criarRendimento("Bolsa", IRPF.NAOTRIBUTAVEL, 1500f);
+        irpf.criarRendimento("Salário", Rendimento.TRIBUTAVEL, 8000f);
+        irpf.criarRendimento("Aluguel", Rendimento.TRIBUTAVEL, 2000f);
+        irpf.criarRendimento("Bolsa", Rendimento.NAOTRIBUTAVEL, 1500f);
         irpf.cadastrarContribuicaoPrevidenciaria(500f);
         irpf.cadastrarContribuicaoPrevidenciaria(1000f);
         irpf.cadastrarDependente("João", "Filho");
@@ -126,7 +126,7 @@ public class TesteAliquotaEfetiva {
 
     @Test
     public void testeAliquotaEfetivaPrimeiraFaixa() {
-        irpf.criarRendimento("Salário", IRPF.TRIBUTAVEL, 2259.19f);
+        irpf.criarRendimento("Salário", Rendimento.TRIBUTAVEL, 2259.19f);
         assertEquals(0.0f, irpf.calcularAliquotaEfetiva(), 0.00f);
     }
 
