@@ -1,7 +1,7 @@
 package app;
 
 public class Deducao {
-    public float valor;
+    private float valor;
 
     public Deducao() {
         this.valor = 0;

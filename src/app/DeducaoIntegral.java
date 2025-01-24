@@ -1,7 +1,7 @@
 package app;
 
 public class DeducaoIntegral extends Deducao {
-    public String nome;
+    private String nome;
 
     public DeducaoIntegral() {
         super();

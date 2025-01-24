@@ -9,10 +9,9 @@ public class BaseCalculo {
 
     public float calcular() {
         float valor = irpf.getTotalRendimentosTributaveis();
-        valor -= irpf.getTotalContribuicoesPrevidenciarias();
+        valor -= irpf.getDeducao();
         valor -= irpf.getTotalPensaoAlimenticia();
         valor -= irpf.getTotalOutrasDeducoes();
-        valor -= irpf.getNumDependentes() * 189.59f;
 
         return Math.max(valor, 0f);
     }

@@ -1,7 +1,7 @@
 package app;
 
 public class PensaoAlimenticia extends Deducao {
-    public String nomeDependente;
+    private String nomeDependente;
 
     public PensaoAlimenticia() {
         super();
@@ -9,6 +9,14 @@ public class PensaoAlimenticia extends Deducao {
 
     public PensaoAlimenticia(float valor, String nomeDependente) {
         super(valor);
+        this.nomeDependente = nomeDependente;
+    }
+
+    public String getNomeDependente() {
+        return this.nomeDependente;
+    }
+
+    public void setNomeDependente(String nomeDependente) {
         this.nomeDependente = nomeDependente;
     }
 }
